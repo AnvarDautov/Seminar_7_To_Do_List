@@ -7,5 +7,3 @@ def menu_interface():
         print(i, sep = '\n')
     print('-----------------------------')
 
-
-menu_interface()
