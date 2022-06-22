@@ -9,7 +9,7 @@ def mark_done():
         current_task_list = []
         counter = 1
         for line in task_list:
-            print(counter, line[1], sep=' ')
+            print(counter, line[-1], sep=' ')
             current_task_list.append(line)
             counter += 1
     done_task = input('Введите номер выполненной задачи: ')
@@ -18,8 +18,8 @@ def mark_done():
         done_task_date = datetime.date.today()
         with open ('list_of_done_tasks.csv', 'a', newline='', encoding='utf-8') as file:
             task = csv.writer(file, delimiter = '\t')
-            task.writerow((done_task_date, done_task[1]))
-        print(f'ЗАДАЧА {done_task[1]} ВЫПОЛНЕНА {done_task_date}')
+            task.writerow((done_task_date, done_task[-1]))
+        print(f'ЗАДАЧА {done_task[-1]} ВЫПОЛНЕНА {done_task_date}')
         with open ('list_of_current_tasks.csv', 'w', newline='', encoding='utf-8') as file:
             task = csv.writer(file, delimiter = '\t')
             for elem in current_task_list:
